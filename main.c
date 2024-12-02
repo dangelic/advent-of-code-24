@@ -1,4 +1,3 @@
-// main.c
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -12,7 +11,6 @@ int main(int argc, char *argv[])
     int day = 0;
     int stage = 0;
     char filename[256];
-    char buffer[50000];
 
     for (int i = 1; i < argc; i++)
     {
@@ -36,16 +34,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    while (fgets(buffer, sizeof(buffer), file)) {
-        printf("%s", buffer);
-    }
-
     switch (day) {
         case 1: day1(file, stage); break;
 
 
 
-        
+
         default:
             fprintf(stderr, "Invalid day: %d\n", day);
             fclose(file);

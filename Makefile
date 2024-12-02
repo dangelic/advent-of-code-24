@@ -3,11 +3,11 @@ CC = gcc
 CFLAGS = -Wall -g
 
 # source files and object files
-SRCS = main.c day1.c day2.c day3.c # Add more source files here
+SRCS = main.c day1.c # Add more source files here
 OBJS = $(SRCS:.c=.o)
 
 # output executable
-TARGET = riddle
+TARGET = aoc24
 
 # default target: compile and link the executable
 all: $(TARGET)
