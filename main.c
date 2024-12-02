@@ -1,6 +1,8 @@
+// main.c
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "days.h"
 
 #define ARG1 "-day"
 #define ARG2 "-stage"
@@ -29,13 +31,26 @@ int main(int argc, char *argv[])
     // read day file
     snprintf(filename, sizeof(filename), "puzzle_input/day_%d_stage_%d.txt", day, stage);
     FILE *file = fopen(filename, "r");
-        if (file == NULL) {
-        printf("file not found: %s", filename);
+    if (file == NULL) {
+        fprintf(stderr, "file not found: %s\n", filename);
         return 1;
     }
 
     while (fgets(buffer, sizeof(buffer), file)) {
         printf("%s", buffer);
     }
+
+    switch (day) {
+        case 1: day1(file, stage); break;
+
+
+
+        
+        default:
+            fprintf(stderr, "Invalid day: %d\n", day);
+            fclose(file);
+            return 1;
+    }
+
     fclose(file);    
 }
